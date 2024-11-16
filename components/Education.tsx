@@ -1,3 +1,5 @@
+import SectionHeader from "./SectionHeader.tsx";
+
 export default function Education() {
     const education = [
         {
@@ -31,10 +33,7 @@ export default function Education() {
     ];
     return (
         <>
-            <h2 class="text-2xl text-slate-500 dark:text-slate-100 font-semibold">
-                Education
-            </h2>
-
+            <SectionHeader heading="Education" />
             <ul class="flex flex-col gap-6">
                 {education.map((edu) => {
                     return (
@@ -49,7 +48,7 @@ export default function Education() {
                                         } `}
                                         alt="college logo"
                                     />
-                                    <p class="font-thin text-lg sm:text-xl">
+                                    <p class="sm:font-thin font-semibold text-sm sm:text-xl">
                                         {edu.name}
                                     </p>
                                     <a

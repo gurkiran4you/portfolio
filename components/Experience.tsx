@@ -1,3 +1,5 @@
+import SectionHeader from "./SectionHeader.tsx";
+
 export default function Experience() {
     const experience: {
         company: string;
@@ -126,10 +128,7 @@ export default function Experience() {
     ];
     return (
         <>
-            <h2 class="text-2xl text-slate-500 font-semibold dark:text-slate-100">
-                Experience
-            </h2>
-
+            <SectionHeader heading="Experience" />
             <ul class="flex flex-col gap-2">
                 {experience.map((exp) => {
                     return (
@@ -181,7 +180,7 @@ export default function Experience() {
                     return (
                         <li>
                             <div class="flex flex-col sm:flex-row justify-between">
-                                <h3 class="flex flex-row items-center justify-between">
+                                <h3 class="flex flex-row gap-1 items-center justify-between">
                                     <strong class="text-lg font-semibold">
                                         {exp.company}
                                     </strong>

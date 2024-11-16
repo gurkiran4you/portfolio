@@ -21,8 +21,9 @@ export default function Home() {
             alt="my picture - carowinds, NC"
           />
           <div class="flex flex-col items-center sm:block">
-            <h1 class="text-2xl dark:text-white sm:text-4xl font-bold">
-              Hi, I am Gurkiran 👋
+            <h1 class="text-2xl dark:text-white sm:text-4xl font-bold flex gap-1">
+              Hi, I am Gurkiran{" "}
+              <div class="rotate-0 hover:rotate-12 transition-all">👋</div>
             </h1>
             <p class="my-4">
               <code class="mx-2 dark:text-white">Full Stack Web Developer</code>

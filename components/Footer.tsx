@@ -1,7 +1,7 @@
 export default function Footer() {
     return (
         <>
-            <section class="px-2 py-4 relative bg-slate-200 dark:bg-[#716ec2] bg-slate-100">
+            <section class="px-2 py-4 relative  dark:bg-[#716ec2] bg-slate-100">
                 <footer class="flex flex-col gap-2 items-center justify-center">
                     <ul class="flex gap-2">
                         <li>

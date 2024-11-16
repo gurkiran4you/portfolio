@@ -5,9 +5,9 @@ export default function Header() {
         <>
             <nav
                 id="navbar"
-                class="sticky top-0 z-10 dark:bg-[#716ec2] bg-slate-100 flex flex-row items-center justify-between p-4 font-bold text-gray-700"
+                class="sticky top-0 z-10 dark:bg-[#716ec2] bg-slate-100 flex sm:flex-row flex-col items-center justify-between p-4"
             >
-                <ul class="flex flex-1 items-center gap-6">
+                <ul class="flex flex-1 items-center gap-6 font-bold text-gray-700 sm:text-lg text-xs tracking-tighter sm:tracking-normal">
                     <li>
                         <a
                             href="#about-me"

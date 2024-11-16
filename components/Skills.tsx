@@ -1,3 +1,5 @@
+import SectionHeader from "./SectionHeader.tsx";
+
 export default function Skills() {
     const skills = [
         { name: "Javascript", icon: "js.svg" },
@@ -13,9 +15,7 @@ export default function Skills() {
     ];
     return (
         <>
-            <h2 class="text-xl text-slate-500 font-semibold dark:text-slate-100">
-                Skills
-            </h2>
+            <SectionHeader heading="Skills" />
             <ul class="flex flex-wrap">
                 {skills.map((s) => {
                     return (

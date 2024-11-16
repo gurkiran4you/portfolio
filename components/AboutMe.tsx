@@ -1,9 +1,9 @@
+import SectionHeader from "./SectionHeader.tsx";
+
 export default function AboutMe() {
     return (
         <>
-            <h2 class="text-2xl text-slate-500 font-semibold dark:text-slate-100">
-                About Me
-            </h2>
+            <SectionHeader heading="About Me" />
             <p class="text-lg text-slate-900 font-medium dark:text-slate-100">
                 Hello ! I am a Full-Stack Web applications developer striving to
                 build applications that follow web standards. Based off of the
