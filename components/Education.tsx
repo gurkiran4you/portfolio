@@ -66,7 +66,7 @@ export default function Education() {
                                 </div>
                                 <time class="text-xs">{edu.duration}</time>
                             </div>
-                            <p class="underline font-bold">
+                            <p class="underline font-bold text-center sm:text-left">
                                 {edu.did}
                             </p>
                         </li>
