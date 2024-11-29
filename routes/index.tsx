@@ -6,6 +6,7 @@ import Experience from "../components/Experience.tsx";
 import Education from "../components/Education.tsx";
 import Footer from "../components/Footer.tsx";
 import FixScroll from "../islands/FixScroll.tsx";
+import HoverMenu from "../islands/HoverMenu.tsx";
 
 export default function Home() {
   return (
@@ -48,7 +49,7 @@ export default function Home() {
       </section>
 
       <Footer />
-
+      <HoverMenu />
       <FixScroll />
     </>
   );

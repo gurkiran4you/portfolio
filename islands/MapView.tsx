@@ -203,8 +203,8 @@ function MapView() {
             }),
             style: new Style({
                 stroke: new Stroke({
-                    color: "#000",
-                    width: 2,
+                    color: "#000022",
+                    width: 3,
                     lineDash: [1, 2, 3, 4],
                 }),
             }),
@@ -223,8 +223,14 @@ function MapView() {
         );
     };
 
+    const panInitial = () => {
+        const view = map?.getView();
+        view?.adjustCenter(locations[0].lonlat);
+    };
+
     const tour = () => {
         let index = -1;
+        panInitial();
         function next(more: boolean) {
             if (more) {
                 ++index;

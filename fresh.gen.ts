@@ -10,6 +10,7 @@ import * as $index from "./routes/index.tsx";
 import * as $ColorMode from "./islands/ColorMode.tsx";
 import * as $DownloadResume from "./islands/DownloadResume.tsx";
 import * as $FixScroll from "./islands/FixScroll.tsx";
+import * as $HoverMenu from "./islands/HoverMenu.tsx";
 import * as $MapView from "./islands/MapView.tsx";
 import type { Manifest } from "$fresh/server.ts";
 
@@ -25,6 +26,7 @@ const manifest = {
     "./islands/ColorMode.tsx": $ColorMode,
     "./islands/DownloadResume.tsx": $DownloadResume,
     "./islands/FixScroll.tsx": $FixScroll,
+    "./islands/HoverMenu.tsx": $HoverMenu,
     "./islands/MapView.tsx": $MapView,
   },
   baseUrl: import.meta.url,

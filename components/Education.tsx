@@ -34,10 +34,10 @@ export default function Education() {
     return (
         <>
             <SectionHeader heading="Education" />
-            <ul class="flex flex-col gap-6">
+            <ul class="flex flex-col gap-8">
                 {education.map((edu) => {
                     return (
-                        <li class="flex flex-col items-center justify-center sm:block dark:text-slate-100">
+                        <li class="flex flex-col justify-start sm:block dark:text-slate-100">
                             <div class="flex flex-col sm:flex-row items-center justify-between">
                                 <div class="flex gap-1 items-center">
                                     <img
@@ -66,7 +66,7 @@ export default function Education() {
                                 </div>
                                 <time class="text-xs">{edu.duration}</time>
                             </div>
-                            <p class="underline font-bold text-center">
+                            <p class="underline font-bold">
                                 {edu.did}
                             </p>
                         </li>
