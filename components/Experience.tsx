@@ -24,7 +24,16 @@ export default function Experience() {
             ],
             duration: "July 2019 - May 2024",
             designation: "Senior Software Developer - Web Applications",
-            tech_used: [],
+            tech_used: [
+                "AngularJS",
+                "Angular",
+                "React",
+                "Go",
+                "php",
+                "NodeJS",
+                "SQLite",
+                "MSSQL",
+            ],
         },
         {
             company: "Fidelity Investments",
@@ -39,7 +48,7 @@ export default function Experience() {
             ],
             duration: "Sep 2018 - Nov 2018",
             designation: "Frontend Web Developer",
-            tech_used: [],
+            tech_used: ["React", "SASS", "NodeJS", "MongoDB"],
         },
         {
             company: "Comcast Corporation",
@@ -54,7 +63,7 @@ export default function Experience() {
             ],
             duration: "Feb 2018 - Sep 2018",
             designation: "Frontend Web Developer",
-            tech_used: [],
+            tech_used: ["Angular", "SCSS", "Webpack", "NodeJS"],
         },
         {
             company: "Envision Energy",
@@ -68,7 +77,7 @@ export default function Experience() {
             ],
             duration: "Aug 2017 - Dec 2017",
             designation: "Frontend Web Developer",
-            tech_used: [],
+            tech_used: ["AngularJS", "Python", "SCSS", "Webpack"],
         },
         {
             company: "AARP",
@@ -83,7 +92,7 @@ export default function Experience() {
             ],
             duration: "July 2016 - July 2017",
             designation: "Frontend Web Developer",
-            tech_used: [],
+            tech_used: ["AngularJS", "JQuery", "AEM", "BEM", "Bootstrap"],
         },
     ];
 
@@ -129,10 +138,10 @@ export default function Experience() {
     return (
         <>
             <SectionHeader heading="Experience" />
-            <ul class="flex flex-col gap-2">
+            <ul class="flex flex-col gap-8">
                 {experience.map((exp) => {
                     return (
-                        <li class="border-dashed border-b-2 dark:text-slate-100">
+                        <li class="dark:text-slate-100">
                             <div class="flex flex-col sm:flex-row items-center justify-between">
                                 <h3 class="flex flex-col sm:flex-row gap-2 items-center justify-between">
                                     <div class="flex gap-1">
@@ -169,7 +178,12 @@ export default function Experience() {
                                 })}
                             </div>
 
-                            <p>Tech Used - {exp.tech_used.join(" ,")}</p>
+                            <p>
+                                Tech Used -{" "}
+                                <span class="italic">
+                                    {exp.tech_used.join(" . ")}
+                                </span>
+                            </p>
                         </li>
                     );
                 })}
