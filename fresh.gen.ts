@@ -7,10 +7,13 @@ import * as $_app from "./routes/_app.tsx";
 import * as $api_resume from "./routes/api/resume.ts";
 import * as $footprint_index from "./routes/footprint/index.tsx";
 import * as $index from "./routes/index.tsx";
+import * as $json_index from "./routes/json/index.tsx";
+import * as $portfolio_index from "./routes/portfolio/index.tsx";
 import * as $ColorMode from "./islands/ColorMode.tsx";
 import * as $DownloadResume from "./islands/DownloadResume.tsx";
 import * as $FixScroll from "./islands/FixScroll.tsx";
 import * as $HoverMenu from "./islands/HoverMenu.tsx";
+import * as $JsonViewer from "./islands/JsonViewer.tsx";
 import * as $MapView from "./islands/MapView.tsx";
 import type { Manifest } from "$fresh/server.ts";
 
@@ -21,12 +24,15 @@ const manifest = {
     "./routes/api/resume.ts": $api_resume,
     "./routes/footprint/index.tsx": $footprint_index,
     "./routes/index.tsx": $index,
+    "./routes/json/index.tsx": $json_index,
+    "./routes/portfolio/index.tsx": $portfolio_index,
   },
   islands: {
     "./islands/ColorMode.tsx": $ColorMode,
     "./islands/DownloadResume.tsx": $DownloadResume,
     "./islands/FixScroll.tsx": $FixScroll,
     "./islands/HoverMenu.tsx": $HoverMenu,
+    "./islands/JsonViewer.tsx": $JsonViewer,
     "./islands/MapView.tsx": $MapView,
   },
   baseUrl: import.meta.url,
