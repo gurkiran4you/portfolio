@@ -1,0 +1,70 @@
+{
+    "about_me": "Hello ! I am a Full-Stack Web applications developer striving to build applications that follow web standards. Based off of Calgary",
+    "experience": [
+        {
+            "company_name": "Circle Cardiovascular Imaging",
+            "location": "Calgary, Canada",
+            "duration": "July 2019 - May 2024",
+            "designation": "Senior Software Engineer - Web applications",
+            "What_i_did": [
+                "Full stack development of a medical reporting web application",
+                "Responsible for Frontend architecture and localization",
+                "Spearheaded AngularJS to Angular migration",
+                "Contributed in php to Golang migrations of various components within reporting",
+                "Implemented WYSIWYG report feature i.e. Edit mode, preview mode and pdf generation",
+                "Implemented template-driven reporting for better customizations"
+            ]
+        },
+        {
+            "company_name": "FIdelity Investments",
+            "location": "Merrimack, USA",
+            "duration": "September 2018 - November 2018",
+            "designation": "Frontend Developer - Web Applications",
+            "What_i_did": [
+                "Worked on building an Onboarding portal for current and prospective hires using React",
+                "Made the CSS modular by using SCSS features such as mixins, placeholders, functions etc",
+                "Used React JS to build the portal, with best practices",
+                "Developed Swagger API using NodeJS, as a mockup for the Java Backend team to speed up their development",
+                "Added responsive typography throughout the app"
+            ]
+        },
+        {
+            "company_name": "Comcast Corporation",
+            "location": "Philadelphia, USA",
+            "duration": "February 2018 - September 2018",
+            "designation": "Frontend Developer - Web Applications",
+            "What_i_did": [
+                "Continuing implementing agent experience app for Xfinity mobile",
+                "This app is used by Xfinity mobile store agents to create/modify/add services/add lines to Xfinity mobile customers (Up to 5 lines)",
+                "This project is an upgradation from an earlier outdated app which used Zendesk",
+                "The app used latest Angular version (Angular 5 and 6) with Bootstrap , SCSS in Node environment",
+                "Decreased the dev build time of the app from 2 minutes to 20 seconds in webpack"
+            ]
+        },
+        {
+            "company_name": "Envision Energy",
+            "location": "Houston, USA",
+            "duration": "August 2017 - December 2017",
+            "designation": "Frontend Developer - Web Applications",
+            "What_i_did": [
+                "Implemented a new css version of old UI, using AngularJS",
+                "New version included new graphs, user-friendly and more aesthetic layouts",
+                "Implemented date-time sliders using DevExtreme DX library for time range selections in various graphs",
+                "The graphs would come from Wind-farm data being run by Analysts"
+            ]
+        },
+        {
+            "company_name": "AARP",
+            "location": "Washington DC, USA",
+            "duration": "July 2016 - July 2017",
+            "designation": "Frontend Developer - Web Applications",
+            "What_i_did": [
+                "Moving the old unresponsive components into responsive mobile-friendly web apps",
+                "Helped in developing new proof-of-concept home page website of AARP",
+                "Migrating some apps from AngularJS 1.2 to AngularJS 1.5",
+                "Helped in developing new Home Page using technologies like gulp, Reactjs",
+                "Daily content updates to match with the current home page of AARP"
+            ]
+        }
+    ]
+}

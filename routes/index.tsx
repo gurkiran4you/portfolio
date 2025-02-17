@@ -1,56 +1,108 @@
-import DownloadResume from "../islands/DownloadResume.tsx";
-import Header from "../components/Header.tsx";
-import AboutMe from "../components/AboutMe.tsx";
-import Skills from "../components/Skills.tsx";
-import Experience from "../components/Experience.tsx";
-import Education from "../components/Education.tsx";
-import Footer from "../components/Footer.tsx";
-import FixScroll from "../islands/FixScroll.tsx";
-import HoverMenu from "../islands/HoverMenu.tsx";
+import { Handlers, PageProps } from "$fresh/server.ts";
+import { Cookie, setCookie } from "@std/http/cookie";
 
-export default function Home() {
+const VALID_TYPES = ["json", "html", "text"];
+
+interface Data {
+  error: string;
+}
+
+export const handler: Handlers = {
+  GET(_req, ctx) {
+    const url = new URL(ctx.url);
+    const error = url.searchParams.get("error");
+    if (error === "true") {
+      return ctx.render({ error });
+    }
+    return ctx.render({ error: "" });
+  },
+  async POST(req, ctx) {
+    const form = await req.formData();
+    const content_type = form.get("form_value")?.toString();
+    if (
+      content_type?.trim() === "" ||
+      !VALID_TYPES.some((type) => content_type?.includes(type))
+    ) {
+      const headers = new Headers({
+        location: "/?error=true",
+      });
+      return new Response(null, {
+        status: 302,
+        headers,
+      });
+    }
+
+    const cookie: Cookie = { name: "webdev", value: "true" };
+
+    switch (content_type) {
+      case "application/html": {
+        const headers = new Headers({
+          location: `/portfolio`,
+        });
+
+        setCookie(headers, cookie);
+
+        return new Response(null, {
+          status: 302,
+          headers,
+        });
+      }
+      case "application/json": {
+        const headers = new Headers({
+          location: `/json`,
+        });
+        setCookie(headers, cookie);
+
+        return new Response(null, {
+          status: 302,
+          headers,
+        });
+      }
+      default:
+        return ctx.render({ error: "Something happened !" });
+    }
+  },
+};
+export default function Home(props: PageProps<Data>) {
+  const error = props.data.error;
   return (
     <>
-      <Header />
-      <section class="px-4 py-2 sm:py-8 mx-auto dark:bg-[#716ec2] bg-slate-100">
-        <article class="min-h-svh mx-auto flex flex-col items-center justify-center sm:flex-row gap-6">
-          <img
-            class="my-6 rounded-full"
-            src="/me.png"
-            width="256"
-            height="256"
-            alt="my picture - carowinds, NC"
+      <main class="h-svh grid place-items-center bg-[#2e3537] overflow-hidden">
+        <span class="bubble"></span>
+        <span class="bubble"></span>
+        <span class="bubble"></span>
+        <span class="bubble"></span>
+        <span class="bubble"></span>
+        <span class="bubble"></span>
+        <span class="bubble"></span>
+        <span class="bubble"></span>
+        <span class="bubble"></span>
+        <span class="bubble"></span>
+        <form
+          method="POST"
+          action="/"
+          class="flex sm:flex-row flex-col gap-2 items-center sm:items-end text-white text-[20px] sm:text-[50px]"
+        >
+          <label for="choose-page-type">
+            <code>Content-type:</code>
+          </label>
+          <input
+            id="choose-page-type"
+            class="border-2 border-black p-2 text-black"
+            name="form_value"
+            autofocus
           />
-          <div class="flex flex-col items-center sm:block">
-            <h1 class="text-2xl dark:text-white sm:text-4xl font-bold flex gap-1">
-              Hi, I am Gurkiran{" "}
-              <div class="rotate-0 hover:rotate-12 transition-all">👋</div>
-            </h1>
-            <p class="my-4">
-              <code class="mx-2 dark:text-white">Full Stack Web Developer</code>
-            </p>
-          </div>
-        </article>
-        <DownloadResume />
-      </section>
-      <section class="dark:bg-[#3a388b] bg-slate-200">
-        <main class=" w-full px-2 py-4 sm:px-0 sm:w-1/2 relative sm:left-1/2 sm:-translate-x-1/2 flex flex-col gap-4">
-          <section id="about-me" class="flex flex-col gap-2">
-            <AboutMe />
-            <Skills />
-          </section>
-          <section id="experience">
-            <Experience />
-          </section>
-          <section id="education">
-            <Education />
-          </section>
-        </main>
-      </section>
 
-      <Footer />
-      <HoverMenu />
-      <FixScroll />
+          <button class="hover:underline" type="submit">Go</button>
+        </form>
+        {error !== ""
+          ? (
+            <div class="text-orange-400 h-10 text-center">
+              Please provide correct mime type (supports json & html)
+            </div>
+          )
+          : <div class="h-10"></div>}
+      </main>
     </>
   );
 }
