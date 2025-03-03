@@ -62,12 +62,6 @@ export const handler: Handlers = {
       case "application/pdf": {
         console.log(ctx.url);
         const res = await fetch(new URL("/api/resume", ctx.url));
-        const is_pdf = res.headers.get("Content-Type") === "application/pdf";
-        if (!is_pdf) {
-          return new Response(null, {
-            status: 500,
-          });
-        }
         const resume_array_buffer = await res.arrayBuffer();
         const headers = new Headers({
           contentType: "application/json",
