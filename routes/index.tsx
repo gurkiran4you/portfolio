@@ -1,7 +1,8 @@
 import { Handlers, PageProps } from "$fresh/server.ts";
 import { Cookie, setCookie } from "@std/http/cookie";
+import DownloadResume from "../islands/DownloadResume.tsx";
 
-const VALID_TYPES = ["json", "html", "text"];
+const VALID_TYPES = ["json", "html", "pdf"];
 
 interface Data {
   error: string;
@@ -58,6 +59,25 @@ export const handler: Handlers = {
           headers,
         });
       }
+      case "application/pdf": {
+        console.log(ctx.url);
+        const res = await fetch(new URL("/api/resume", ctx.url));
+        const is_pdf = res.headers.get("Content-Type") === "application/pdf";
+        if (!is_pdf) {
+          return new Response(null, {
+            status: 500,
+          });
+        }
+        const resume_array_buffer = await res.arrayBuffer();
+        const headers = new Headers({
+          contentType: "application/json",
+          contentDisposition: "inline; filename='resume.pdf'",
+        });
+        return new Response(resume_array_buffer, {
+          status: 200,
+          headers,
+        });
+      }
       default:
         return ctx.render({ error: "Something happened !" });
     }
@@ -98,7 +118,7 @@ export default function Home(props: PageProps<Data>) {
         {error !== ""
           ? (
             <div class="text-orange-400 h-10 text-center">
-              Please provide correct mime type (supports json & html)
+              Please provide correct mime type (supports json / html / pdf)
             </div>
           )
           : <div class="h-10"></div>}
