@@ -60,8 +60,9 @@ export const handler: Handlers = {
         });
       }
       case "application/pdf": {
-        console.log(new URL("/api/resume", ctx.url));
-        const res = await fetch(new URL("/api/resume", ctx.url));
+        const resume_url = new URL("/api/resume", ctx.url);
+        const path = resume_url.href;
+        const res = await fetch(path);
         const resume_array_buffer = await res.arrayBuffer();
         const headers = new Headers({
           contentType: "application/json",
