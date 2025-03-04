@@ -36,7 +36,7 @@ export const handler: Handlers = {
     const cookie: Cookie = { name: "webdev", value: "true" };
 
     switch (content_type) {
-      case "application/html": {
+      case "text/html": {
         const headers = new Headers({
           location: `/portfolio`,
         });
