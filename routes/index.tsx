@@ -60,16 +60,13 @@ export const handler: Handlers = {
         });
       }
       case "application/pdf": {
-        const resume_url = new URL("/api/resume", ctx.url);
-        const path = resume_url.href;
-        const res = await fetch(path);
-        const resume_array_buffer = await res.arrayBuffer();
         const headers = new Headers({
-          contentType: "application/json",
-          contentDisposition: "inline; filename='resume.pdf'",
+          location: `/api/resume`,
         });
-        return new Response(resume_array_buffer, {
-          status: 200,
+        setCookie(headers, cookie);
+
+        return new Response(null, {
+          status: 302,
           headers,
         });
       }
