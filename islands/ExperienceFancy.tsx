@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "preact/hooks";
-import { TopIntersectionWatcher } from "./intersectionObserver.tsx";
+import { TopIntersectionWatcher } from "./IntersectionObserver.tsx";
 
 type singleExperience = {
   order: number;
