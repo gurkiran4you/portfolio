@@ -10,11 +10,16 @@ import * as $index from "./routes/index.tsx";
 import * as $json_index from "./routes/json/index.tsx";
 import * as $portfolio_index from "./routes/portfolio/index.tsx";
 import * as $ColorMode from "./islands/ColorMode.tsx";
+import * as $DevMode from "./islands/DevMode.tsx";
 import * as $DownloadResume from "./islands/DownloadResume.tsx";
+import * as $ExperienceFancy from "./islands/ExperienceFancy.tsx";
 import * as $FixScroll from "./islands/FixScroll.tsx";
 import * as $HoverMenu from "./islands/HoverMenu.tsx";
+import * as $IntersectionObserver from "./islands/IntersectionObserver.tsx";
 import * as $JsonViewer from "./islands/JsonViewer.tsx";
 import * as $MapView from "./islands/MapView.tsx";
+import * as $Terminal from "./islands/Terminal.tsx";
+import * as $TypedUI from "./islands/TypedUI.tsx";
 import type { Manifest } from "$fresh/server.ts";
 
 const manifest = {
@@ -29,11 +34,16 @@ const manifest = {
   },
   islands: {
     "./islands/ColorMode.tsx": $ColorMode,
+    "./islands/DevMode.tsx": $DevMode,
     "./islands/DownloadResume.tsx": $DownloadResume,
+    "./islands/ExperienceFancy.tsx": $ExperienceFancy,
     "./islands/FixScroll.tsx": $FixScroll,
     "./islands/HoverMenu.tsx": $HoverMenu,
+    "./islands/IntersectionObserver.tsx": $IntersectionObserver,
     "./islands/JsonViewer.tsx": $JsonViewer,
     "./islands/MapView.tsx": $MapView,
+    "./islands/Terminal.tsx": $Terminal,
+    "./islands/TypedUI.tsx": $TypedUI,
   },
   baseUrl: import.meta.url,
 } satisfies Manifest;
