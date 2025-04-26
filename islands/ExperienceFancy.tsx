@@ -247,6 +247,8 @@ export default function ExperienceFancy() {
   const trackpadDelta = useRef(0);
   const currentYearRef = useRef(currentYear);
 
+  const touchStartY = useRef<number | null>(null);
+
   let currentExptext: singleExperience | undefined;
 
   const handleNonExperienceYear = () => {
@@ -331,7 +333,34 @@ export default function ExperienceFancy() {
     const el = sectionRef.current!;
     el.addEventListener("wheel", handleWheel, { passive: false });
 
-    return () => el.removeEventListener("wheel", handleWheel);
+    const handleTouchStart = (e: TouchEvent) =>
+      touchStartY.current = e.touches[0]?.clientY;
+    el.addEventListener(
+      "touchstart",
+      handleTouchStart,
+      { passive: true },
+    );
+    const handleTouchEnd = (e: TouchEvent) => {
+      if (touchStartY.current === null) return;
+      const endY = e.changedTouches[0].clientY; // correct for touchend
+      const deltaY = touchStartY.current - endY;
+
+      if (Math.abs(deltaY) < 30) return; // ignore small moves
+
+      if (deltaY > 0) {
+        setScrollDirection("down");
+      } else {
+        setScrollDirection("up");
+      }
+      handleScrollPosition(scrollDirection);
+    };
+
+    el.addEventListener("touchend", handleTouchEnd, { passive: true });
+    return () => {
+      el.removeEventListener("wheel", handleWheel);
+      el.removeEventListener("touchstart", handleTouchStart);
+      el.removeEventListener("touchend", handleTouchEnd);
+    };
   }, [trap]);
 
   const handleScrollPosition = (direction: ScrollDirection) => {
@@ -372,8 +401,8 @@ export default function ExperienceFancy() {
         ref={sectionRef}
       >
         {/* Left Sticky Year Display */}
-        <div className="w-2/5 flex justify-center items-center">
-          <div class="flex gap-2 flex-wrap">
+        <div className="sm:w-2/5 w-full flex justify-around sm:justify-center items-center">
+          <div class="flex gap-2 flex-wrap justify-center items-center">
             {Array.from(new Array(latestyear - oldestyear + 1), (_, i) => (
               <p
                 class={`${
@@ -386,20 +415,15 @@ export default function ExperienceFancy() {
               </p>
             ))}
           </div>
-          {
-            /* <p class="text-6xl text-gray-400 font-bold">
-            {currentYear}
-          </p> */
-          }
         </div>
 
         {/* Right Scrollable Content */}
-        <div className="w-3/5 flex flex-col items-center">
+        <div className="sm:w-3/5 w-full flex flex-col items-center px-2 justify-center">
           {currentExptext &&
             (
               <>
                 <div class="flex flex-col gap-2 justify-center items-center">
-                  <span class="text-3xl dark:text-white text-black">
+                  <span class="text-3xl dark:text-white text-black text-center sm:text-left">
                     {currentExptext?.institution}
                   </span>
                   <span class="w-fit italic text-lg underline px-2 py-1 dark:bg-black dark:text-white inline-block">
