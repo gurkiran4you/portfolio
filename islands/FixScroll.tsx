@@ -9,10 +9,10 @@ export default function FixScroll() {
     );
   }, []);
 
-  useEffect(() => {
-    if (document.cookie !== "webdev=true") {
-      globalThis.location.pathname = "/";
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (document.cookie !== "webdev=true") {
+  //     globalThis.location.pathname = "/";
+  //   }
+  // }, []);
   return <></>;
 }
