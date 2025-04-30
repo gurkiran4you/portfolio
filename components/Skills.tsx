@@ -11,6 +11,9 @@ export default function Skills() {
     { name: "Fresh", icon: "fresh.svg" },
     { name: "Angular", icon: "angular.svg" },
     { name: "React", icon: "react.svg" },
+    { name: "Sqlite", icon: "sqlite.svg" },
+    { name: "Sqlserver", icon: "sqlserver.svg" },
+    { name: "MongoDB", icon: "mongo.svg" },
   ];
   return (
     <>
