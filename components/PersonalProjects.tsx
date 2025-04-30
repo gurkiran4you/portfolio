@@ -22,7 +22,7 @@ export default function PersonalProjects() {
   return (
     <>
       <SectionHeader heading="Personal Projects" />
-      <div class="flex flex-col items-stretch sm:flex-row sm:justify-around py-5 gap-4">
+      <div class="flex flex-col items-center sm:items-stretch sm:flex-row sm:justify-around py-5 gap-4">
         {personalProjects.map((s) => {
           return (
             <a
