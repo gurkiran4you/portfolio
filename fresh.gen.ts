@@ -5,7 +5,7 @@
 import * as $_404 from "./routes/_404.tsx";
 import * as $_app from "./routes/_app.tsx";
 import * as $api_resume from "./routes/api/resume.ts";
-import * as $footprint_index from "./routes/footprint/index.tsx";
+import * as $footprints_index from "./routes/footprints/index.tsx";
 import * as $index from "./routes/index.tsx";
 import * as $json_index from "./routes/json/index.tsx";
 import * as $portfolio_index from "./routes/portfolio/index.tsx";
@@ -27,7 +27,7 @@ const manifest = {
     "./routes/_404.tsx": $_404,
     "./routes/_app.tsx": $_app,
     "./routes/api/resume.ts": $api_resume,
-    "./routes/footprint/index.tsx": $footprint_index,
+    "./routes/footprints/index.tsx": $footprints_index,
     "./routes/index.tsx": $index,
     "./routes/json/index.tsx": $json_index,
     "./routes/portfolio/index.tsx": $portfolio_index,

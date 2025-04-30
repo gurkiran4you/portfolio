@@ -18,13 +18,13 @@ const ValidSingleKeywords: ValidCmds[] = [
 
 const ValidCmdObj = {
   help: `
-        <i>available commands: help, ls, clear, view, exit</i>
+        <i>available commands: help, ls, clear, view, footprints, exit</i>
         <br><br>
         <b>help</b> - Show available commands<br>
         <b>ls</b> - List available menu options<br>
         <b>clear</b> - Clear the terminal<br>
         <b>view</b> [menu option] - View a specific menu option<br>
-        <b>timeline</b> - View a map of my life<br>
+        <b>footprints</b> - View a map of my life<br>
         <b>exit</b> - Exit the terminal, go to UI<br>
     `,
   exit: `
@@ -136,13 +136,13 @@ export default function Terminal(props: { visibility: boolean }) {
           setOutput("");
           setHistory([]);
           return "clear";
-        case "footprint":
+        case "footprints":
           setHistory([]);
           setOutput(`Exiting terminal...\nnavigating to timeline mode`);
           delay(1000).then(() => {
-            globalThis.location.href = "/footprint";
+            globalThis.location.href = "/footprints";
           });
-          return "timeline";
+          return "footprints";
         default:
           return `Unknown command: ${cmd}`;
       }

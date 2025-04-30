@@ -8,6 +8,7 @@ import Skills from "../../components/Skills.tsx";
 import DownloadResume from "../../islands/DownloadResume.tsx";
 import FixScroll from "../../islands/FixScroll.tsx";
 import HoverMenu from "../../islands/HoverMenu.tsx";
+import PersonalProjects from "../../components/PersonalProjects.tsx";
 
 export default function Home() {
   return (
@@ -74,6 +75,9 @@ export default function Home() {
       </section>
       <section id="experience" class="dark:bg-slate-800">
         <ExperienceFancy />
+      </section>
+      <section id="personal-projects" class="dark:bg-slate-800">
+        <PersonalProjects />
       </section>
       <Footer />
       <HoverMenu />
