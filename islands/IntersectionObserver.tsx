@@ -15,7 +15,7 @@ export function TopIntersectionWatcher(
       {
         root: null, // viewport
         threshold: 0,
-        rootMargin: "-1px 0px -99% 0px", // triggers when top edge hits top of viewport
+        rootMargin: "-50px 0px -99% 0px", // triggers when top edge hits top of viewport
       },
     );
 
@@ -27,5 +27,5 @@ export function TopIntersectionWatcher(
     };
   }, []);
 
-  return <div ref={ref} style={{ height: "10px" }} />;
+  return <div ref={ref} style={{ height: "25px" }} />;
 }

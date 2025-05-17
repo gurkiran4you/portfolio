@@ -18,7 +18,7 @@ export default function Header() {
           </li>
           <li>
             <a
-              href="/footprint"
+              href="/footprints"
               class="dark:bg-slate-800 dark:text-white bg-white p-1 hover:text-gray-900 dark:hover:text-gray-100 border-gray-500 py-1"
             >
               footprints
