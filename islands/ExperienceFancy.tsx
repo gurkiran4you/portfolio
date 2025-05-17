@@ -397,23 +397,22 @@ export default function ExperienceFancy() {
         onIntersect={() => disableScroll()}
       />
       <div
-        className="flex flex-col w-full items-center justify-around min-h-screen overflow-hidden"
+        className="flex flex-col w-full items-center justify-center gap-2 min-h-screen overflow-hidden"
         ref={sectionRef}
       >
         {/* Left Sticky Year Display */}
         <div className="sm:w-2/5 w-full flex justify-around sm:justify-center items-center">
           <div class="flex gap-2 flex-wrap justify-center items-center">
-            {Array.from(new Array(latestyear - oldestyear + 1), (_, i) => (
-              <p
-                class={`${
-                  currentYear === latestyear - i
-                    ? "text-orange-800 dark:text-orange-200 scale-125 underline"
-                    : "text-gray-400"
-                } text-xs font-bold`}
-              >
-                {latestyear - i}
-              </p>
-            ))}
+            {/* {Array.from(new Array(latestyear - oldestyear + 1), (_, i) => ( */}
+            <p class="text-6xl dark:text-white text-black font-bold underline" // class={`${
+              //   currentYear === latestyear - i
+              //     ? "text-orange-800 dark:text-orange-200 scale-125 underline"
+              //     : "text-gray-400"
+              // } text-xs font-bold`}
+            >
+              {currentYear}
+            </p>
+            {/* ))} */}
           </div>
         </div>
 
